@@ -1,0 +1,10 @@
+from aiogram.types import InlineKeyboardMarkup,InlineKeyboardButton,ReplyKeyboardMarkup,KeyboardButton
+main_markup=ReplyKeyboardMarkup(resize_keyboard=True)
+button1=KeyboardButton('💸Фармить голду💸')
+button2=KeyboardButton('📒Баланс голды')
+button3=KeyboardButton('📦Вывод голды')
+button4=KeyboardButton('👤Профиль')
+main_markup.add(button1).row(button2,button3).add(button4)
+channles_markup=InlineKeyboardMarkup(row_width=1)
+checksub_button=InlineKeyboardButton(text='ПРОВЕРИТЬ',callback_data='checksubchannel')
+channles_markup.insert(checksub_button)
