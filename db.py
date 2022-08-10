@@ -7,7 +7,6 @@ class DataBase:
     def __init__(self, db_file):
         self.connection = sqlite3.connect(db_file)
         self.cursor = self.connection.cursor()
-        self.cursor.close()
 
     def get_user(self, user_id):
         with self.connection:
@@ -30,7 +29,7 @@ class DataBase:
     def add_click(self, user_id, newclick):
         with self.connection:
             self.cursor.execute("UPDATE `users` SET `clicks`= ? WHERE `user_id` = ?", (newclick, user_id,))
-            conn.commit()
+            conn.cursor()
     def user_money(self, user_id):
         with self.connection:
             result = self.cursor.execute("SELECT `balance` FROM `users` WHERE `user_id` = ?", (user_id,)).fetchone()
@@ -38,7 +37,7 @@ class DataBase:
     def set_money(self, user_id, amount):
         with self.connection:
             self.cursor.execute("UPDATE `users` SET `balance` = ? WHERE `user_id` = ?", (amount, user_id,))
-            conn.commit()
+            conn.cursor()
     def user_level(self, user_id):
         with self.connection:
             result = self.cursor.execute("SELECT `user_level` FROM `users` WHERE `user_id` = ?", (user_id,)).fetchone()
@@ -46,7 +45,7 @@ class DataBase:
     def set_level(self, user_id, level):
         with self.connection:
             self.cursor.execute("UPDATE `users` SET `user_level` = ? WHERE `user_id` = ?", (level, user_id,))
-            conn.commit()
+            conn.cursor()
     def user_referals(self, user_id):
         with self.connection:
             result = self.cursor.execute("SELECT `referals` FROM `users` WHERE `user_id` = ?", (user_id,)).fetchone()
@@ -55,7 +54,7 @@ class DataBase:
     def add_referal(self, user_id, amount):
         with self.connection:
             self.cursor.execute("UPDATE `users` SET `referals` = ? WHERE `user_id` = ?", (amount, user_id,))
-            conn.commit()
+            conn.cursor()
     def all_users(self):
         with self.connection:
             return self.cursor.execute("SELECT `user_id` FROM `users`").fetchall()
