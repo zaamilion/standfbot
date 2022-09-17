@@ -7,14 +7,14 @@ button1=KeyboardButton('💰ФАРМИТЬ ГОЛДУ💰')
 button2=KeyboardButton('🔒Вывод🔒')
 button3=KeyboardButton('💸Заработать голду💸')
 menu=ReplyKeyboardMarkup(resize_keyboard=True).add(button1).add(button2).add(button3)
-channels=['@zamstand']
+channels=['@zamstand','@stand_3000']
 markup=InlineKeyboardMarkup(row_width=1).insert(InlineKeyboardButton(text='ПРОВЕРИТЬ',callback_data='check'))
 async def check_subchannel(user_id):
     for channel in channels:
         chat_member = await bot.get_chat_member(channel,user_id)
         if chat_member['status']=='left':
             await bot.send_message(user_id,'🔥БРОО, ты уже готов зарабатывать голду на халявуу???\nТогда для работы бота подпишись на каналы:\n\n'
-                                           '[ПОДПИСАТЬСЯ](https://t.me/zamstand)\n',reply_markup=markup,parse_mode=types.ParseMode.MARKDOWN)
+                                           '[⭐ПОДПИСАТЬСЯ](https://t.me/+M6wnWCbnnG9hNTEy)\n\n [🔥ПОДПИСАТЬСЯ](https://t.me/+RJsZ0_viKbZhMzZi)\n\n[🤙ПОДПИСАТЬСЯ](https://t.me/+7GJIua0k8yo3YTBi)',reply_markup=markup,parse_mode=types.ParseMode.MARKDOWN)
             return False
         return True
 @dp.message_handler(commands=['start'])
