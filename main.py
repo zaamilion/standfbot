@@ -1,7 +1,7 @@
 from aiogram import types,executor,Bot,Dispatcher
 from aiogram.types import ReplyKeyboardMarkup,KeyboardButton,InlineKeyboardButton,InlineKeyboardMarkup
 
-bot = Bot(token='5482816138:AAHzJRieWZH4SEXAfMpUV_UpnPuj8VNDgDk')
+bot = Bot(token='token')
 dp = Dispatcher(bot)
 button1=KeyboardButton('💰ФАРМИТЬ ГОЛДУ💰')
 button2=KeyboardButton('🔒Вывод🔒')
